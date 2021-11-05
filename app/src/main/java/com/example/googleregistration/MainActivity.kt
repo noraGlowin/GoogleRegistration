@@ -3,6 +3,7 @@ package com.example.googleregistration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.widget.CheckBox
 import android.widget.Toast
@@ -15,24 +16,25 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.next.setOnClickListener { registration() }
-//        binding.showpass.setOnCheckedChangeListener()
+
+        binding.showpass.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked){
+                binding.passwordInput.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                binding.confirmInput.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            }else {
+                binding.passwordInput.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.confirmInput.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
+
     }
     fun registration() {
         val firstName = binding.firstNameInput.text.toString()
         val lastName = binding.lastNameInput.text.toString()
         val email = binding.userNameInput.text.toString()
-
         val password =binding.passwordInput.text.toString()
         val confirm = binding.confirmInput.text.toString()
-//        val showPass ={
-//            if(binding.showpass.isChecked ){
-//         show pass
-//        }else{
-//         hide pass
-//        }
-//
-//        }
-       // showPass.setOnCheckedChangeListener()
+
 if (firstName.isNotEmpty()&& lastName.isNotEmpty()&& email.isNotEmpty() &&password.isNotEmpty()&&confirm.isNotEmpty()){
    // Toast.makeText(MainActivity@ this, "in $email ", Toast.LENGTH_SHORT).show()
     if (email.contains('!') || email.contains('@')||email.contains(' ') || email.contains('#')
@@ -55,6 +57,8 @@ if (firstName.isNotEmpty()&& lastName.isNotEmpty()&& email.isNotEmpty() &&passwo
 }
     }
 
-}
 
+
+
+}
 
