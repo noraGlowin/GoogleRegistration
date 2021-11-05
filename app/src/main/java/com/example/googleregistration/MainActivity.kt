@@ -42,8 +42,8 @@ if (firstName.isNotEmpty()&& lastName.isNotEmpty()&& email.isNotEmpty() &&passwo
         || email.contains('$')||email.contains('%') || email.contains('^')
         || email.contains('&')||email.contains('*') || email.contains('?')
         || email.contains('>')||email.contains('-') || email.contains('_')){
-       // binding.userName.helperText = "Please Enter User Name Without Symbol or spaces"
-        Toast.makeText(this, "Please Enter User Name Without Symbol or spaces", Toast.LENGTH_SHORT).show()
+
+      Toast.makeText(this, "Please Enter User Name Without Symbol or spaces", Toast.LENGTH_SHORT).show()
     }
    else if (password==confirm){
         Toast.makeText(this,"Hi $firstName you register successfully", Toast.LENGTH_LONG).show()

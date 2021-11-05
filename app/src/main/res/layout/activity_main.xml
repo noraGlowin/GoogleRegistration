@@ -86,8 +86,7 @@
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:hint="@string/user_name"
-        app:helperText=" "
-        app:helperTextTextColor="@android:color/holo_red_dark"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,10 +125,10 @@
         android:textColor="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <TextView
         android:id="@+id/use_email"
@@ -180,10 +179,10 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toEndOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573">
+        app:layout_constraintTop_toBottomOf="@+id/use_email"
+        app:layout_constraintVertical_bias="0.075">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirm_input"
