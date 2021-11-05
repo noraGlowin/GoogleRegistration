@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         binding.next.setOnClickListener { registration() }
 
         binding.showpass.setOnCheckedChangeListener { compoundButton, isChecked ->
@@ -26,7 +28,6 @@ class MainActivity : AppCompatActivity() {
                 binding.confirmInput.transformationMethod = PasswordTransformationMethod.getInstance()
             }
         }
-
     }
     fun registration() {
         val firstName = binding.firstNameInput.text.toString()
@@ -41,19 +42,23 @@ if (firstName.isNotEmpty()&& lastName.isNotEmpty()&& email.isNotEmpty() &&passwo
         || email.contains('$')||email.contains('%') || email.contains('^')
         || email.contains('&')||email.contains('*') || email.contains('?')
         || email.contains('>')||email.contains('-') || email.contains('_')){
-       // Toast.makeText(MainActivity@ this, "in if ", Toast.LENGTH_SHORT).show()
-        //  binding.result.setText("Please Enter User Name Without Symbol or spaces")
+       // binding.userName.helperText = "Please Enter User Name Without Symbol or spaces"
         Toast.makeText(this, "Please Enter User Name Without Symbol or spaces", Toast.LENGTH_SHORT).show()
     }
    else if (password==confirm){
         Toast.makeText(this,"Hi $firstName you register successfully", Toast.LENGTH_LONG).show()
     }else{
-//        binding.result.setText("Password Missmatch")
-        Toast.makeText(this, "Password Missmatch", Toast.LENGTH_SHORT).show()
+
+        binding.password.helperText="Password Mismatch , please re-enter your password"
+        binding.confirm.helperText="Password Mismatch , please re-enter your password"
     }
 
 }else{
-    binding.result.setText("Please full all blanks")
+    binding.firstName.helperText="full the blank please !"
+    binding.userName.helperText="full the blank please !"
+    binding.password.helperText="full the blank please !"
+    binding.confirm.helperText="full the blank please !"
+    binding.lastName.helperText="full the blank please !"
 }
     }
 
